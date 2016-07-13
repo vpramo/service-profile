@@ -20,7 +20,7 @@ topology_template:
           kind: onos
           view_url: /admin/onos/onosservice/\$id$/
           no_container: true
-          rest_hostname: onos-cord
+          rest_hostname: onos-ctrl1
           replaces: service_ONOS_CORD
 
     service#vtn:
@@ -29,11 +29,11 @@ topology_template:
           view_url: /admin/vtn/vtnservice/\$id$/
           privateGatewayMac: 00:00:00:00:00:01
           localManagementIp: 172.27.0.1/24
-          ovsdbPort: 6641
+          ovsdbPort: 6640
           sshUser: root
-          sshKeyFile: /root/node_key
+          sshKeyFile: /root/.ssh/id_rsa
           sshPort: 22
-          xosEndpoint: http://xos/
+          xosEndpoint: http://onos-xos1/
           xosUser: padmin@vicci.org
           xosPassword: letmein
           replaces: service_vtn
@@ -104,7 +104,6 @@ cat >> $FN <<EOF
               node: service#vtn
               relationship: tosca.relationships.UsedByService
       properties:
-          install_dependencies: http://mavenrepo:8080/repository/org/opencord/cord-config/1.0-SNAPSHOT/cord-config-1.0-SNAPSHOT.oar,http://mavenrepo:8080/repository/org/opencord/vtn/1.0-SNAPSHOT/vtn-1.0-SNAPSHOT.oar
           dependencies: org.onosproject.drivers, org.onosproject.drivers.ovsdb, org.onosproject.openflow-base, org.onosproject.ovsdb-base, org.onosproject.dhcp
           autogenerate: vtn-network-cfg
 EOF
