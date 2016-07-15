@@ -43,6 +43,7 @@ EOF
 NODES=$( bash -c "source $SETUPDIR/admin-openrc.sh ; nova host-list" |grep compute|awk '{print $2}' )
 I=0
 for NODE in $NODES; do
+    ((I++))
     echo $NODE
     cat >> $FN <<EOF
     $NODE:
@@ -53,7 +54,7 @@ for NODE in $NODES; do
       type: tosca.nodes.Tag
       properties:
           name: bridgeId
-          value: of:0000000000000001
+          value: of:000000000000000${I}
       requirements:
           - target:
               node: $NODE
