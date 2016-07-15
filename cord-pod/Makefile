@@ -82,6 +82,7 @@ podconfig: nodes.yaml images.yaml
 
 vtn: vtn-external.yaml
 	$(RUN_TOSCA) vtn-external.yaml
+	bash create_public_gw.sh
 
 fabric: fabric.yaml
 	$(RUN_TOSCA) fabric.yaml
