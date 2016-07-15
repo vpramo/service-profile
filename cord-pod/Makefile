@@ -82,7 +82,6 @@ podconfig: nodes.yaml images.yaml
 
 vtn: vtn-external.yaml
 	$(RUN_TOSCA) vtn-external.yaml
-	bash create_public_gw.sh
 
 fabric: fabric.yaml
 	$(RUN_TOSCA) fabric.yaml
@@ -94,6 +93,7 @@ cord: vsg_custom_images
 
 cord-subscriber:
 	$(RUN_TOSCA) cord-test-subscriber.yaml
+	bash create_public_gw.sh
 
 clean-nodes:
 	rm -f nodes.yaml
