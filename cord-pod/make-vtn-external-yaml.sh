@@ -20,7 +20,7 @@ topology_template:
           kind: onos
           view_url: /admin/onos/onosservice/\$id$/
           no_container: true
-          rest_hostname: onos-ctrl1
+          rest_hostname: onos-xos-ctrl1
           replaces: service_ONOS_CORD
 
     service#vtn:
@@ -33,7 +33,7 @@ topology_template:
           sshUser: root
           sshKeyFile: /root/.ssh/id_rsa
           sshPort: 22
-          xosEndpoint: http://onos-xos1/
+          xosEndpoint: http://xos1/
           xosUser: padmin@vicci.org
           xosPassword: letmein
           replaces: service_vtn
