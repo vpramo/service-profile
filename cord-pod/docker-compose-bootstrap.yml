@@ -1,10 +1,10 @@
 xos_db:
-    image: xosproject/xos-postgres
+    image: vpramo/xos-postgres
     expose:
         - "5432"
 
 xos_synchronizer_onboarding:
-    image: xosproject/xos-synchronizer-onboarding
+    image: vpramo/xos-synchronizer-onboarding
     command: bash -c "cd /opt/xos/synchronizers/onboarding; ./run.sh"
     #command: sleep 86400
     labels:
@@ -24,7 +24,7 @@ xos_synchronizer_onboarding:
 
 xos_synchronizer_openstack:
     command: bash -c "sleep 120; python /opt/xos/synchronizers/openstack/xos-synchronizer.py"
-    image: xosproject/xos-synchronizer-openstack
+    image: vpramo/xos-synchronizer-openstack
     labels:
         org.xosproject.kind: synchronizer
         org.xosproject.target: openstack
@@ -45,7 +45,7 @@ xos_bootstrap_ui:
     command: python /opt/xos/manage.py runserver 0.0.0.0:81 --insecure --makemigrations
     environment:
         - CONFIG_DIR
-    image: xosproject/xos
+    image: vpramo/xos
     links:
         - xos_db
     ports:
