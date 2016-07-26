@@ -58,7 +58,7 @@ update:
 	git -C $(SERVICE_DIR)/fabric pull
 
 $(XOS_DIR):
-	git -C ../.. clone https://gerrit.opencord.org/p/xos.git
+	git -C ../.. clone https://github.com/vpramo/xos.git
 
 update_xos:
 	git -C $(XOS_DIR) pull
