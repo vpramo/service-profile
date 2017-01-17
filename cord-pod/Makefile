@@ -78,7 +78,7 @@ cord:
 	$(RUN_TOSCA) cord-services.yaml
 	$(RUN_TOSCA) public-net.yaml
 	$(RUN_TOSCA) $(COMMON_DIR)/tosca/cord-volt-devices.yaml
-        bash replace_gw.sh
+	bash replace_gw.sh
 
 vrouter:
 	$(RUN_TOSCA) ./vrouter.yaml

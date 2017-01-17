@@ -4,7 +4,7 @@
 COMMON_DIR           ?= $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 CONFIG_DIR           ?= $(COMMON_DIR)
 
-HOME_DIR             ?= $(shell echo ~)
+HOME_DIR             ?= /root
 MYIP                 ?= $(shell hostname -i)
 
 XOS_DIR              ?= $(HOME_DIR)/xos
